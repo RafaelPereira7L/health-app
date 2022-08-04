@@ -38,16 +38,22 @@ export default function NavBar() {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className="text-white font-medium p-2 rounded-lg hover:bg-violet-700 hover:shadow-lg hover:scale-105 ease-in-out duration-150 ">
-                <a href="#">Calcular IMC</a>
+                <a href="#imc">Calcular IMC</a>
               </li>
               <li className="text-white font-medium p-2 rounded-lg hover:bg-violet-700 hover:shadow-lg hover:scale-105 ease-in-out duration-150 ">
-                <a href="#">Calcular TMB</a>
+                <a href="#tmb">Calcular TMB</a>
               </li>
               <li className="text-white font-medium p-2 rounded-lg hover:bg-violet-700 hover:shadow-lg hover:scale-105 ease-in-out duration-150 ">
-                <a href="#">Calcular BF</a>
+                <a href="#bf">Calcular BF</a>
               </li>
               <li className="text-white font-medium p-2 rounded-lg hover:bg-violet-700 hover:shadow-lg hover:scale-105 ease-in-out duration-150 ">
-                <a href="#">Criador</a>
+                <a
+                  target="_blank"
+                  href="https://www.rafael-dev.tech/"
+                  rel="noreferrer"
+                >
+                  Criador
+                </a>
               </li>
             </ul>
           </div>

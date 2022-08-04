@@ -1,13 +1,14 @@
 # TO DO
-- TMB CALCULATOR
 - BODY FAT CALCULATOR
 
 # DOING
-- INITIAL PAGE
+- TMB CALCULATOR
 
 # DONE
+- INITIAL PAGE ✅
 - IMC CALCULATOR ✅
 
+<br/>
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).

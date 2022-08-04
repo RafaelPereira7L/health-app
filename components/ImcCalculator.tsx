@@ -61,29 +61,35 @@ const IMC: NextPage = () => {
 
   return (
     <>
-      <p className="text-justify font-medium mt-10 mx-4 lg:mx-auto">
-        O índice de massa corporal (IMC) é uma medida internacional usada para
-        calcular se uma pessoa está no peso ideal. Desenvolvido pelo polímata
-        Lambert Quételet no fim do século XIX, trata-se de um método fácil e
-        rápido para a avaliação do nível de gordura de cada pessoa, sendo, por
-        isso, um preditor internacional de obesidade adotado pela Organização
-        Mundial da Saúde (OMS).
-      </p>
-      <p
-        className="text-center font-medium text-violet-600 cursor-pointer"
-        onClick={() => {
-          Swal.fire({
-            title: 'OBSERVAÇÕES',
-            text: 'O IMC, no entanto, apresenta algumas limitações e, portanto, não deve ser usado como único parâmetro para determinar sobrepeso. Por considerar apenas o peso do indivíduo, o IMC não permite diferenciar o que é músculo (massa magra) do que realmente é gordura. Por esse motivo, podem ser obtidos resultados errôneos que não condizem com a real composição corporal de cada indivíduo. Assim sendo, torna-se essencial a realização da quantificação da gordura corpórea antes da confirmação do diagnóstico e também a realização de medições da circunferência abdominal e de taxas de colesterol. É importante frisar que o IMC é realizado apenas em adultos. Em crianças, a análise da obesidade e do baixo peso é feita observando-se o peso e comparando-o com a idade e a altura.',
-            icon: 'info',
-            confirmButtonText: 'OK 👍',
-          });
-        }}
+      <div data-aos="zoom-in" data-aos-duration="1500">
+        <p className="text-justify font-medium mt-10 mx-4 lg:mx-auto">
+          O índice de massa corporal (IMC) é uma medida internacional usada para
+          calcular se uma pessoa está no peso ideal. Desenvolvido pelo polímata
+          Lambert Quételet no fim do século XIX, trata-se de um método fácil e
+          rápido para a avaliação do nível de gordura de cada pessoa, sendo, por
+          isso, um preditor internacional de obesidade adotado pela Organização
+          Mundial da Saúde (OMS).
+        </p>
+        <p
+          className="text-center font-medium text-violet-600 cursor-pointer"
+          onClick={() => {
+            Swal.fire({
+              title: 'OBSERVAÇÕES',
+              text: 'O IMC, no entanto, apresenta algumas limitações e, portanto, não deve ser usado como único parâmetro para determinar sobrepeso. Por considerar apenas o peso do indivíduo, o IMC não permite diferenciar o que é músculo (massa magra) do que realmente é gordura. Por esse motivo, podem ser obtidos resultados errôneos que não condizem com a real composição corporal de cada indivíduo. Assim sendo, torna-se essencial a realização da quantificação da gordura corpórea antes da confirmação do diagnóstico e também a realização de medições da circunferência abdominal e de taxas de colesterol. É importante frisar que o IMC é realizado apenas em adultos. Em crianças, a análise da obesidade e do baixo peso é feita observando-se o peso e comparando-o com a idade e a altura.',
+              icon: 'info',
+              confirmButtonText: 'OK 👍',
+            });
+          }}
+        >
+          OBSERVAÇÕES
+        </p>
+      </div>
+      <div
+        className="mt-5 p-10 rounded-lg bg-gray-200 shadow-lg"
+        id="imc"
+        data-aos="fade-up"
+        data-aos-duration="1500"
       >
-        OBSERVAÇÕES
-      </p>
-
-      <div className="mt-5 p-10 rounded-lg bg-gray-200 shadow-lg">
         <h1 className="text-2xl text-center">CALCULAR IMC</h1>
         <div className="h-full flex align-middle items-center justify-center mt-5">
           <div className="flex flex-col align-middle items-center justify-center">
