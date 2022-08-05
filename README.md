@@ -7,6 +7,10 @@
 
 <br/>
 
+<img src='public/1be68e53-8eca-4829-a4bc-25fd50005780.png'>
+
+<br/>
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
