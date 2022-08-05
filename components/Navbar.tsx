@@ -11,7 +11,7 @@ export default function NavBar() {
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-6 md:py-6 md:block">
-            <div className="flex flex-row align-middle items-end gap-2 pointer-events-none">
+            <div className="flex flex-row align-middle items-end gap-2 select-none pointer-events-none">
               <Image src="/favicon.png" width={50} height={50} alt="Gainz" />
               <h1 className="text-3xl font-bold text-white">GAINZ</h1>
             </div>
