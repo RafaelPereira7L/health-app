@@ -56,7 +56,7 @@ const TMB: NextPage = () => {
   }, [height]);
 
   return (
-    <div className="justify-center align-middle">
+    <div className="justify-center align-middle mt-20">
       <div data-aos="zoom-in" data-aos-duration="1500" id="tmb">
         <p className="text-justify font-medium mt-10 mx-4 lg:mx-auto">
           A energia que nosso corpo utiliza para manter as funções fisiológicas,

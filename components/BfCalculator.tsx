@@ -88,7 +88,7 @@ const BF: NextPage = () => {
   }, [height]);
 
   return (
-    <div className="justify-center align-middle mt-20 sm:mt-52">
+    <div className="justify-center align-middle mt-20">
       <div data-aos="zoom-in" data-aos-duration="1500" id="bf">
         <p className="text-justify font-medium mt-10 mx-4 lg:mx-auto">
           A quantidade de gordura corporal ideal no homem pode variar entre 16 e
