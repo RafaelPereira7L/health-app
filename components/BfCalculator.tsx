@@ -4,36 +4,68 @@ import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-const TMB: NextPage = () => {
+const BF: NextPage = () => {
   const [genre, setGenre] = useState('');
-  const [age, setAge] = useState<number>();
   const [weight, setWeight] = useState<number>();
   const [height, setHeight] = useState<number>();
-  const [tmb, setTmb] = useState<number>();
+  const [neck, setNeck] = useState<number>();
+  const [waist, setWaist] = useState<number>();
+  const [hip, setHip] = useState<number>();
+  const [bf, setBf] = useState<number>();
   const [success, setSuccess] = useState<boolean>(false);
 
   const handleCalculate = () => {
     if (
-      typeof age === 'number' &&
       typeof weight === 'number' &&
       typeof height === 'number' &&
+      typeof neck === 'number' &&
+      typeof waist === 'number' &&
       height > 0 &&
       weight > 0 &&
-      age > 0 &&
-      genre !== ''
+      genre !== '' &&
+      neck > 0 &&
+      waist > 0
     ) {
       if (genre === 'male') {
-        const result = Math.round(
-          66.5 + 13.75 * weight + 5.003 * height * 100 - 6.775 * age,
-        );
+        const result =
+          495 /
+            (1.0324 -
+              0.19077 * Math.log10(waist - neck) +
+              0.15456 * Math.log10(height * 100)) -
+          450;
         setSuccess(true);
-        setTmb(result);
-      } else if (genre === 'female') {
+        setBf(result);
+        if (result < 0) {
+          toast.error('Revise as medidas inseridas!', {
+            position: 'top-right',
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      } else if (genre === 'female' && typeof hip === 'number' && hip > 0) {
+        const result =
+          495 /
+            (1.29579 -
+              0.35004 * Math.log10(waist + hip - neck) +
+              0.221 * Math.log10(height * 100)) -
+          450;
         setSuccess(true);
-        const result = Math.round(
-          655.1 + 9.563 * weight + 1.85 * height * 100 - 4.676 * age,
-        );
-        setTmb(result);
+        setBf(result);
+        if (result < 0) {
+          toast.error('Revise as medidas inseridas!', {
+            position: 'top-right',
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
       }
     } else {
       setSuccess(false);
@@ -56,24 +88,21 @@ const TMB: NextPage = () => {
   }, [height]);
 
   return (
-    <div className="h-screen justify-center align-middle">
-      <div data-aos="zoom-in" data-aos-duration="1500" id="tmb">
+    <div className="h-screen justify-center align-middle mt-20">
+      <div data-aos="zoom-in" data-aos-duration="1500" id="bf">
         <p className="text-justify font-medium mt-10 mx-4 lg:mx-auto">
-          A energia que nosso corpo utiliza para manter as funções fisiológicas,
-          durante o repouso físico e mental, mínima para manter a vida é o que
-          chamamos de TMB. Vários aspectos podem mudar essa taxa: idade, existe
-          a tendência da taxa decair ao longo dos anos, a diferença entre a
-          primeira a nona década de vida é em torno de 33%; composição corporal,
-          pessoas com mais peso tendem a gastar mais energia, e se esse peso for
-          de massa livre de gordura (MLG), tender gastar ainda mais; sexo,
-          homens possuem maior TMB que mulheres.
+          A quantidade de gordura corporal ideal no homem pode variar entre 16 e
+          20% e na mulher entre 20 e 24%, porém estes valores normalmente
+          aumentam com a idade e, na maioria dos casos é superior na mulher.
+          Além disso, um indivíduo que faz atividade física regularmente tem
+          menos gordura corporal do que um que é sedentário.
         </p>
         <p
           className="text-center font-medium text-violet-600 cursor-pointer"
           onClick={() => {
             Swal.fire({
               title: 'OBSERVAÇÕES',
-              text: '  Outras questões que também afetam são aspectos neurohormonais, distúrbios como tireoidopatias, estresse, agitação emocional, fase do ciclo menstrual (a TMB é maior durante a fase lútea), gestação, condições sistêmicas como febre, sepse, uso de substâncias como cafeína, nicotina ou álcool também afetam a TMB.',
+              text: 'Note que os resultados desse cálculo são apenas estimados, uma vez que ele é aplicado para o máximo de pessoas possíveis. Para ter um resultado mais preciso, faça a análise utilizando instrumentos como a balança de bioimpedância. Além disso, é importante que você sempre procure um profissional desta área.',
               icon: 'info',
               confirmButtonText: 'OK 👍',
             });
@@ -124,18 +153,7 @@ const TMB: NextPage = () => {
                 </label>
               </div>
             </div>
-            <div className="mb-4">
-              <input
-                type="number"
-                step="1"
-                min="1"
-                id="idade"
-                className="bg-white border border-violet-600 rounded-lg p-2 outline-none focus:ring focus:ring-violet-400 ease-in-out duration-150"
-                placeholder="Idade"
-                value={age ? age : ''}
-                onChange={(e) => setAge(parseInt(e.target.value))}
-              />
-            </div>
+
             <div className="mb-4">
               <input
                 type="number"
@@ -160,6 +178,44 @@ const TMB: NextPage = () => {
                 onChange={(e) => setHeight(parseFloat(e.target.value))}
               />
             </div>
+            <div className="mb-4">
+              <input
+                type="number"
+                min="1"
+                step="0.01"
+                id="pescoço"
+                className="bg-white border border-violet-600 rounded-lg p-2 outline-none focus:ring focus:ring-violet-400 ease-in-out duration-150"
+                placeholder="Medida do pescoço"
+                value={neck ? neck : ''}
+                onChange={(e) => setNeck(parseFloat(e.target.value))}
+              />
+            </div>
+            <div className="mb-4">
+              <input
+                type="number"
+                min="1"
+                step="0.01"
+                id="cintura"
+                className="bg-white border border-violet-600 rounded-lg p-2 outline-none focus:ring focus:ring-violet-400 ease-in-out duration-150"
+                placeholder="Medida da cintura"
+                value={waist ? waist : ''}
+                onChange={(e) => setWaist(parseFloat(e.target.value))}
+              />
+            </div>
+            <div className="mb-4">
+              <input
+                type="number"
+                step="1"
+                min="1"
+                id="quadril"
+                className={`bg-white border border-violet-600 rounded-lg p-2 outline-none focus:ring focus:ring-violet-400 ease-in-out duration-150 ${
+                  genre === 'female' ? 'block' : 'hidden'
+                }`}
+                placeholder="Quadril"
+                value={hip ? hip : ''}
+                onChange={(e) => setHip(parseInt(e.target.value))}
+              />
+            </div>
             <button
               onClick={() => handleCalculate()}
               className="bg-violet-500 rounded-lg p-2 outline-none focus:ring focus:ring-violet-400 hover:scale-105 ease-in-out duration-150 font-medium text-white"
@@ -178,23 +234,9 @@ const TMB: NextPage = () => {
         <div className="h-full flex align-middle items-center justify-center mt-5">
           <div className="flex flex-col align-middle items-center justify-center">
             <h2 className="text-xl font-medium mb-2">
-              Sua Taxa metabólica basal é:{' '}
+              Sua BF é:{' '}
               <strong className="text-violet-500">
-                {tmb ? tmb : ''} kcal/dia
-              </strong>
-            </h2>
-
-            <h2 className="text-lg font-medium text-center mb-2">
-              Para perder peso você precisa consumir aproximadamente:{' '}
-              <strong className="text-violet-500">
-                {tmb ? tmb - 450 : ''} kcal/dia
-              </strong>
-            </h2>
-
-            <h2 className="text-lg font-medium text-center">
-              Para ganhar peso você precisa consumir aproximadamente:{' '}
-              <strong className="text-violet-500">
-                {tmb ? tmb + 450 : ''} kcal/dia
+                {bf ? bf.toFixed(1) : ''}%
               </strong>
             </h2>
           </div>
@@ -204,4 +246,4 @@ const TMB: NextPage = () => {
   );
 };
 
-export default TMB;
+export default BF;

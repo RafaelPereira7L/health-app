@@ -7,6 +7,7 @@ import IMC from '../components/ImcCalculator';
 import TMB from '../components/TmbCalculator';
 import NavBar from '../components/Navbar';
 import 'aos/dist/aos.css';
+import BF from '../components/BfCalculator';
 
 const Home: NextPage = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
       <main className="max-w-lg m-auto text-black">
         <IMC />
         <TMB />
+        <BF />
       </main>
     </>
   );

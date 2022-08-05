@@ -60,13 +60,8 @@ const IMC: NextPage = () => {
   }, [success, imc]);
 
   return (
-    <div className="mb-20">
-      <div
-        data-aos="zoom-in"
-        data-aos-duration="1500"
-        id="imc"
-        className="mt-20"
-      >
+    <div className="h-screen mt-20" id="imc">
+      <div data-aos="zoom-in" data-aos-duration="1500" className="mt-20">
         <p className="text-justify font-medium mt-10 mx-4 lg:mx-auto">
           O índice de massa corporal (IMC) é uma medida internacional usada para
           calcular se uma pessoa está no peso ideal. Desenvolvido pelo polímata
@@ -139,10 +134,12 @@ const IMC: NextPage = () => {
         <div className="h-full flex align-middle items-center justify-center mt-5">
           <div className="flex flex-col align-middle items-center justify-center">
             <h2 className="text-lg font-medium">
-              Seu IMC é: {imc?.toFixed(2)}
+              Seu IMC é:{' '}
+              <strong className="text-violet-500">{imc?.toFixed(2)}</strong>
             </h2>
             <h2 className="text-lg font-medium">
-              Classificação: {classification}
+              Classificação:{' '}
+              <strong className="text-violet-500">{classification}</strong>
             </h2>
           </div>
         </div>
