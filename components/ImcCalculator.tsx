@@ -60,7 +60,7 @@ const IMC: NextPage = () => {
   }, [success, imc]);
 
   return (
-    <div className="h-screen mt-20" id="imc">
+    <div className="mt-20" id="imc">
       <div data-aos="zoom-in" data-aos-duration="1500" className="mt-20">
         <p className="text-justify font-medium mt-10 mx-4 lg:mx-auto">
           O índice de massa corporal (IMC) é uma medida internacional usada para
